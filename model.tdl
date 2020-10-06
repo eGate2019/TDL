@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tdl:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tdl="http://www.etsi.org/spec/TDL/1.4.1" xmi:id="_ik0ksAd9EeuorNgIRo5lKw" name="Model">
+  <packagedElement xsi:type="tdl:SimpleDataType" xmi:id="_ik0ksQd9EeuorNgIRo5lKw" name="String"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" xmi:id="_ik0ksgd9EeuorNgIRo5lKw" name="Boolean"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" xmi:id="_ik0kswd9EeuorNgIRo5lKw" name="Integer"/>
+  <packagedElement xsi:type="tdl:SimpleDataType" xmi:id="_ik0ktAd9EeuorNgIRo5lKw" name="Verdict"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" xmi:id="_ik0ktQd9EeuorNgIRo5lKw" name="pass" dataType="_ik0ktAd9EeuorNgIRo5lKw"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" xmi:id="_ik0ktgd9EeuorNgIRo5lKw" name="fail" dataType="_ik0ktAd9EeuorNgIRo5lKw"/>
+  <packagedElement xsi:type="tdl:SimpleDataInstance" xmi:id="_ik0ktwd9EeuorNgIRo5lKw" name="inconclusive" dataType="_ik0ktAd9EeuorNgIRo5lKw"/>
+</tdl:Package>

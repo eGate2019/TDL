@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tdl:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:tdl="http://www.etsi.org/spec/TDL/1.4.1" name="AAS_TP_001">
+  <import>
+    <importedPackage href="AAS_Setup_01.tdlan2#/"/>
+  </import>
+</tdl:Package>

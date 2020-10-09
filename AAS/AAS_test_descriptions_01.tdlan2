@@ -1,0 +1,54 @@
+/*
+Copyright (c) ETSI 2020.
+
+This software is subject to copyrights owned by ETSI. Non-exclusive permission
+is hereby granted, free of charge, to copy, reproduce and amend this file
+under the following conditions: It is provided "as is", without warranty of any
+kind, expressed or implied.
+
+ETSI shall never be liable for any claim, damages, or other liability arising
+from its use or inability of use.This permission does not apply to any documentation
+associated with this file for which ETSI keeps all rights reserved. The present
+copyright notice shall be included in all copies of whole or part of this
+file and shall not imply any sub-license right.
+*/
+
+Package AAS_TP_001 {
+
+	Import all from AAS_setup_001 ;
+	//Test description definition
+	Test Description uses configuration defaultAASconfiguration
+	{
+		//Pre_conditions and preamble from the source document
+	perform action preambles with {PREAMBLE;};
+	perform action preConditions with {PRECONDITION;};
+
+ 	//Test sequence
+ 	AAA.gate_ sends AAS_Create_Command(aAccessor_OK) to AAS.gate_ with {
+	STEP : "1" ;
+	PROCEDURE : "AAA transmits a AAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS " ;
+	} ;
+ alternatively {
+		AAS.gate_ sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_OK) to AAA.gate_ with {
+		 STEP : "2" ;
+			PROCEDURE : "Check: Does the AAS transmit an
+		 	eAAS_OK to AAA?" ;
+		 test objectives : AAS_TP1 ;
+			} ;
+		Set verdict to PASS ;
+		}or{
+	
+	//Interpolated original step 6 into an alternative behaviour,
+	//covering both the incorrect and the correct behaviours of the AAS
+	
+	AAS.gate_ sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_NOK) to AAA.gate_ ;
+	Set verdict to FAIL ;
+	} with {
+	 	STEP : "6" ;
+	 		PROCEDURE : "Check: Does the AAS send any NOK
+	  to AAA?" ;
+	 	test objectives : AAS_TP2 ;
+	}
+
+ 	} 	with {	Note : "" ; 	TITLE : "Correct Accessor Creation" ;}
+}

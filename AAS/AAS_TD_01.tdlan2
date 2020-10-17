@@ -52,13 +52,13 @@ Package AAS_TP_001 {
 		Set verdict to PASS ;
 		}or{
 	
-	//Interpolated original step 6 into an alternative behaviour,
+	//Interpolated original step 3 into an alternative behaviour,
 	//covering both the incorrect and the correct behaviours of the AAS
 	
 	AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_NOK) to AAA.g ;
 	Set verdict to FAIL ;
 	} with {
-	 	STEP : "6" ;
+	 	STEP : "3" ;
 	 		PROCEDURE : "Check: Does the AAS send any NOK
 	  to AAA?" ;
 	 	test objectives : AAS_TP2 ;

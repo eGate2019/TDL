@@ -12,7 +12,7 @@ associated with this file for which ETSI keeps all rights reserved. The present
 copyright notice shall be included in all copies of whole or part of this
 file and shall not imply any sub-license right.
 */
-Package AAS_setup_001 {
+Package AAS_TC_001 {
 
 	Action preambles : "Preamble:The generic procedure open a pipe session on the AAS.";
 	Action preConditions : "Pre_test Conditions:RC Connection Reconfiguration" ;
@@ -78,20 +78,20 @@ Package AAS_setup_001 {
 	Gate Type AAA_GT accepts AAS_ADMIN_CREATE_ACCESSOR_Service_Response, AAS_ADMIN_CREATE_ACCESSOR_Service_Command ;
 	
 	//Component type definitions
-	Component Type defAAS_CT having {
-		gate gate_ of type AAS_GT;
+	Component Type AAS_CT having {
+		gate g of type AAS_GT;
 	}
-	Component Type defAAA_CT having {
-		gate gate_ of type AAA_GT;
+	Component Type AAA_CT having {
+		gate g of type AAA_GT;
 	}
 	
 	 //Test configuration definition
-	Test Configuration defaultAASconfiguration {
+	Test Configuration AAS_TC_001 {
 		//Create the tester as an Accessor Authentication Application
-		create Tester AAA of type defAAA_CT;
+		create Tester AAA of type AAA_CT;
 		//Create the SUT as as an Accessor Authentication Service 
-		create SUT AAS of type defAAS_CT ;
-	 	connect AAS.gate_ to AAA.gate_ ;
+		create SUT AAS of type AAS_CT ;
+	 	connect AAS.g to AAA.g ;
 	}
  } 	with {
 	Note : "AAS" ;

@@ -1,0 +1,68 @@
+/*
+Copyright (c) ETSI 2020.
+
+This software is subject to copyrights owned by ETSI. Non-exclusive permission
+is hereby granted, free of charge, to copy, reproduce and amend this file
+under the following conditions: It is provided "as is", without warranty of any
+kind, expressed or implied.
+
+ETSI shall never be liable for any claim, damages, or other liability arising
+from its use or inability of use.This permission does not apply to any documentation
+associated with this file for which ETSI keeps all rights reserved. The present
+copyright notice shall be included in all copies of whole or part of this
+file and shall not imply any sub-license right.
+*/
+
+//Structured test objective specifications
+Package objectives {
+    import all from AAS_DOMAIN;
+    import all from AAS_DATA;
+    Test Purpose {   
+        TP Id TP_MOVE_OBJECT_LITERAL
+        Test objective "Move object to destination with literal values."
+        PICS Selection MOVABLE
+        Expected behaviour 
+        ensure that {  
+            when { 
+                the Controller entity sends the start position containing 
+                    x indicating value 22,
+                    y indicating value 21
+                ; 
+            } then {
+                the Object entity moves_to the received start position
+            }
+        }
+    }
+
+    Test Purpose {   
+        TP Id TP_MOVE_OBJECT_PREDEFINED
+        Test objective "Move object to destination with predefined values."
+        Expected behaviour 
+        ensure that {
+            when { 
+                the Controller entity sends the (predefined) startingPosition containing 
+                    x indicating value -22,
+                    y indicating value -21 
+                ; 
+            } then {
+                the Object entity moves_to the (predefined) startingPosition
+            } 
+        }
+    }
+
+    Test Purpose {   
+        TP Id TP_MOVE_OBJECT_TYPED
+        Test objective "Move object to destination with typed values."
+        Expected behaviour 
+        ensure that {
+            when { 
+                the Controller entity sends the (typed) starting position containing 
+                    x indicating value -22,
+                    y indicating value -21 
+                ; 
+            } then {
+                the Object entity moves_to the (typed) starting position
+            } 
+        }
+    }
+}

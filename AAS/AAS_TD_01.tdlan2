@@ -15,21 +15,35 @@ file and shall not imply any sub-license right.
 
 Package AAS_TP_001 {
 
-	Import all from AAS_setup_001 ;
+	Import all from AAS_TC_001 ;
+		//Test objectives (copied verbatim from source document)
+	
+    Test Objective AAS_TP1 {
+		from : "RQ0613_001" ;
+	 	description : "Prior to access to a resource, an accessor shall authenticate itself based on some credentials with the accessor authentication service." ;
+	}
+	Test Objective AAS_TP2 {
+		from : "RQ0613_002" ;
+	 	description : "Prior to access to a resource, an accessor shall authenticate itself based on some credentials with the accessor authentication service." ;
+	}
+	
 	//Test description definition
-	Test Description uses configuration defaultAASconfiguration
+	
+	Test Description AAS_TD_CREATE_01 uses configuration AAS_C_001
 	{
 		//Pre_conditions and preamble from the source document
 	perform action preambles with {PREAMBLE;};
 	perform action preConditions with {PRECONDITION;};
-
+	
  	//Test sequence
- 	AAA.gate_ sends AAS_Create_Command(aAccessor_OK) to AAS.gate_ with {
+ 	AAA.g sends AAS_ADMIN_CREATE_ACCESSOR_Service_Command (aAccessor_OK) to AAS.g with {
 	STEP : "1" ;
 	PROCEDURE : "AAA transmits a AAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS " ;
 	} ;
+	
+	
  alternatively {
-		AAS.gate_ sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_OK) to AAA.gate_ with {
+		AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_OK) to AAA.g with {
 		 STEP : "2" ;
 			PROCEDURE : "Check: Does the AAS transmit an
 		 	eAAS_OK to AAA?" ;
@@ -41,7 +55,7 @@ Package AAS_TP_001 {
 	//Interpolated original step 6 into an alternative behaviour,
 	//covering both the incorrect and the correct behaviours of the AAS
 	
-	AAS.gate_ sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_NOK) to AAA.gate_ ;
+	AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(eAAS_NOK) to AAA.g ;
 	Set verdict to FAIL ;
 	} with {
 	 	STEP : "6" ;

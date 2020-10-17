@@ -7,6 +7,9 @@
     <semanticResources>AAS_test_descriptions_01.tdlan2</semanticResources>
     <semanticResources>AAS_Setup_01.tdlan2</semanticResources>
     <semanticResources>AAS_test_descriptions_01.tdlan2.tdl</semanticResources>
+    <semanticResources>AAS_TP_001.tplan2</semanticResources>
+    <semanticResources>AAS_DO_001.tplan2</semanticResources>
+    <semanticResources>AAS_DA_001.tplan2</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_EqUv8AonEeud75_5rT9kAQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_fkWXUAowEeu0vbSvhJFFPw" name="new Generic TDL" repPath="#_fRHSQAowEeu0vbSvhJFFPw" changeId="0e4acfc6-3c76-4a5e-9dca-54c479f61c72">

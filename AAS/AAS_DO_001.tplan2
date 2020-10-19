@@ -17,7 +17,7 @@ file and shall not imply any sub-license right.
 Package AAS_DOMAIN {
 	Domain {
 	    pics : 
-	    - MOVABLE
+	    - ACCESSOR_CREATION
 	    ; 
 		entities : 
 		- AAA 
@@ -25,9 +25,30 @@ Package AAS_DOMAIN {
 		;
 		events :
 		- sends
-		- receives
-		- moves
-		- moves_to
-		;
+		-  aAccessor_OK  //Command successful
+		-  aAccessor_E_CMD_PAR_UNKNOWN  // Unknown parameters used for an operation
+		-  aAccessor_E_NOK  // Operation failed
+		-  aAccessor_ACL_RULES_VIOLATIONS  // The operation violates the ACL conditions
+		-  aAccessor_NOT_AUTHENTICATED  // The accessor is not authenticated
+		-  aAccessor_POLICY_RULES_VIOLATIONS  // The operation violates the credentials policy
+		
+		// Response status
+		//---------------
+		
+		-eAAS_OK  // Operation successful
+		-eAAS_E_CMD_PAR_UNKNOWN  // Unknown parameters used for an operation
+		-eAAS_E_NOK  // Operation failed
+		-eAAS_ACL_RULES_VIOLATIONS  // The operation violates the ACL conditions
+		-eAAS_NOT_AUTHENTICATED  // The accessor is not authenticated
+		-eAAS_POLICY_RULES_VIOLATIONS  // The operation violates the credentials policy
+		//Type of -  create command
+		//-------------------------------
+		
+		- aAAS_ADMIN_CREATE_ACCESSOR_Service_Command 
+		
+		//Type of accessor create response
+		//--------------------------------
+		-aAAS_ADMIN_CREATE_ACCESSOR_Service_Response 
+			;
 	}
 }

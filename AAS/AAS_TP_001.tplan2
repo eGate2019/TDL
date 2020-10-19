@@ -19,50 +19,15 @@ Package objectives {
     import all from AAS_DATA;
     Test Purpose {   
         TP Id TP_MOVE_OBJECT_LITERAL
-        Test objective "Move object to destination with literal values."
-        PICS Selection MOVABLE
+        Test objective "Creation of an Accessor."
+        PICS Selection ACCESSOR_CREATION
         Expected behaviour 
         ensure that {  
             when { 
-                the Controller entity sends the start position containing 
-                    x indicating value 22,
-                    y indicating value 21
-                ; 
+                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command containing aAccessor_OK ; 
             } then {
-                the Object entity moves_to the received start position
+                the AAS entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Response containing eAAS_OK;
             }
-        }
-    }
-
-    Test Purpose {   
-        TP Id TP_MOVE_OBJECT_PREDEFINED
-        Test objective "Move object to destination with predefined values."
-        Expected behaviour 
-        ensure that {
-            when { 
-                the Controller entity sends the (predefined) startingPosition containing 
-                    x indicating value -22,
-                    y indicating value -21 
-                ; 
-            } then {
-                the Object entity moves_to the (predefined) startingPosition
-            } 
-        }
-    }
-
-    Test Purpose {   
-        TP Id TP_MOVE_OBJECT_TYPED
-        Test objective "Move object to destination with typed values."
-        Expected behaviour 
-        ensure that {
-            when { 
-                the Controller entity sends the (typed) starting position containing 
-                    x indicating value -22,
-                    y indicating value -21 
-                ; 
-            } then {
-                the Object entity moves_to the (typed) starting position
-            } 
         }
     }
 }

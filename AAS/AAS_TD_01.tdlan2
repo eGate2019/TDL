@@ -36,14 +36,14 @@ Package AAS_TP_001 {
 	perform action preConditions with {PRECONDITION;};
 	
  	//Test sequence
- 	AAA.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS.g with {
+ 	AAA.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Command(accessor = aAccessor_OK) to AAS.g with {
 	STEP : "1" ;
 	PROCEDURE : "AAA transmits a AAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS " ;
 	} ;
 	
 	
  alternatively {
-		AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response to AAA.g with {
+		AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(status =eAAS_OK)  to AAA.g with {
 		 STEP : "2" ;
 			PROCEDURE : "Check: Does the AAS transmit an
 		 	eAAS_OK to AAA?" ;
@@ -55,7 +55,7 @@ Package AAS_TP_001 {
 	//Interpolated original step 3 into an alternative behaviour,
 	//covering both the incorrect and the correct behaviours of the AAS
 	
-	AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response to AAA.g ;
+	AAS.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(status=eAAS_E_NOK) to AAA.g ;
 	set verdict to FAIL ;
 	} with {
 	 	STEP : "3" ;

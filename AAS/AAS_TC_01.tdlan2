@@ -61,12 +61,12 @@ Package AAS_TC_001 {
 	//Type of Accessor create command
 	//-------------------------------
 	Type AAS_ADMIN_CREATE_ACCESSOR_Service_Command(accessor of type Accessor);
-	AAS_ADMIN_CREATE_ACCESSOR_Service_Command aAAS_ADMIN_CREATE_ACCESSOR_Service_Command ;
+	AAS_ADMIN_CREATE_ACCESSOR_Service_Command aAAS_ADMIN_CREATE_ACCESSOR_Service_Command (accessor=?) ;
 	
 	//Type of accessor create response
 	//--------------------------------
 	Type AAS_ADMIN_CREATE_ACCESSOR_Service_Response(status of type AAS_Service_Response) ;
-	AAS_ADMIN_CREATE_ACCESSOR_Service_Response aAAS_ADMIN_CREATE_ACCESSOR_Service_Response ;
+	AAS_ADMIN_CREATE_ACCESSOR_Service_Response aAAS_ADMIN_CREATE_ACCESSOR_Service_Response(status=?) ;
 
 	//User_defined time units
  	Time Second;

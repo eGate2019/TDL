@@ -18,7 +18,7 @@ Package objectives {
     import all from AAS_DOMAIN;
     import all from AAS_DATA;
     Test Purpose {   
-        TP Id TP_MOVE_OBJECT_LITERAL
+        TP Id TP_CREATION_ACCESSOR_OK
         Test objective "Creation of an Accessor."
         PICS Selection ACCESSOR_CREATION
         Expected behaviour 

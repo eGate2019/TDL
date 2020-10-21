@@ -13,7 +13,7 @@ copyright notice shall be included in all copies of whole or part of this
 file and shall not imply any sub-license right.
 */
 
-Package AAS_TP_001 {
+Package AAS_TD_001 {
 
 	Import all from AAS_TC_001 ;
 		//Test objectives (copied verbatim from source document)
@@ -50,7 +50,9 @@ Package AAS_TP_001 {
 		 test objectives : AAS_TP1 ;
 			} ;
 		set verdict to PASS ;
-		}or{
+	}
+or
+	{
 	
 	//Interpolated original step 3 into an alternative behaviour,
 	//covering both the incorrect and the correct behaviours of the AAS
@@ -59,8 +61,7 @@ Package AAS_TP_001 {
 	set verdict to FAIL ;
 	} with {
 	 	STEP : "3" ;
-	 		PROCEDURE : "Check: Does the AAS send any NOK
-	  to AAA?" ;
+		PROCEDURE : "Check: Does the AAS send any NOK to AAA?" ;
 	 	test objectives : AAS_TP2 ;
 	}
 

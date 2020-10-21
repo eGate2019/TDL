@@ -17,7 +17,12 @@ file and shall not imply any sub-license right.
 Package AAS_DOMAIN {
 	Domain {
 	    pics : 
-	    - ACCESSOR_CREATION
+	    - ACCESSOR_CREATION_OK
+	    - ACCESSOR_CREATION_NOK
+	    - ACCESSOR_CREATION_ACL_RULES_VIOLATIONS
+	    - ACCESSOR_CREATION_NOT_AUTHENTICATED
+	    - ACCESSOR_CREATION_POLICY_RULES_VIOLATIONS
+ 
 	    ; 
 		entities : 
 		- AAA 

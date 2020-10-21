@@ -19,7 +19,7 @@ Package objectives {
     import all from AAS_DATA;
     Test Purpose {   
         TP Id TP_CREATION_ACCESSOR_OK
-        Test objective "Creation of an Accessor."
+        Test objective "Valid Creation of an Accessor."
         PICS Selection ACCESSOR_CREATION
         Expected behaviour 
         ensure that {  
@@ -30,4 +30,57 @@ Package objectives {
             }
         }
     }
+    Test Purpose {   
+        TP Id TP_CREATION_ACCESSOR_NOK
+        Test objective "Invalid creation of an Accessor."
+        PICS Selection ACCESSOR_CREATION_NOK
+        Expected behaviour 
+        ensure that {  
+            when { 
+                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command containing aAccessor_E_OK ; 
+            } then {
+                the AAS entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Response containing eAAS_E_NOK;
+            }
+        }
+    }
+       Test Purpose {   
+        TP Id TP_CREATION_ACCESSOR_ACL_RULES_VIOLATIONS
+        Test objective "Invalid creation of an Accessor -violation of rules."
+        PICS Selection ACCESSOR_CREATION_ACL_RULES_VIOLATIONS
+        Expected behaviour 
+        ensure that {  
+            when { 
+                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command containing aAccessor_CL_RULES_VIOLATIONS ; 
+            } then {
+                the AAS entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Response containing eAAS_ACL_RULES_VIOLATIONS;
+            }
+        }
+    }
+       Test Purpose {   
+        TP Id TP_CREATION_ACCESSOR_NOT_AUTHENTICATED
+        Test objective "Invalid creation of an Accessor.Accessor not authenticated."
+        PICS Selection ACCESSOR_CREATION_NOT_AUTHENTICATED
+        Expected behaviour 
+        ensure that {  
+            when { 
+                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command containing aAccessor_NOT_AUTHENTICATED ; 
+            } then {
+                the AAS entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Response containing eAAS_E_NOT_AUTHENTICATED;
+            }
+        }
+    }
+       Test Purpose {   
+        TP Id TP_CREATION_ACCESSOR_POLICY_RULES_VIOLATIONS
+        Test objective "Invalid creation of an Accessor. Policy rules violations"
+        PICS Selection ACCESSOR_CREATION_POLICY_RULES_VIOLATIONS
+        Expected behaviour 
+        ensure that {  
+            when { 
+                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command containing aAccessor_E_POLICY_RULES_VIOLATIONS ; 
+            } then {
+                the AAS entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Response containing eAAS_E_POLICY_RULES_VIOLATIONS;
+            }
+        }
+    }
+    
 }

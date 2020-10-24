@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tdl:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tdl="http://www.etsi.org/spec/TDL/1.4.1" name="AAS_TD_001">
+  <packagedElement xsi:type="tdl:TestObjective" name="AAS_TP1" description="&quot;Prior to access to a resource, an accessor shall authenticate itself based on some credentials with the accessor authentication service.&quot;">
+    <objectiveURI>&quot;RQ0613_001&quot;</objectiveURI>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:TestObjective" name="AAS_TP2" description="&quot;Prior to access to a resource, an accessor shall authenticate itself based on some credentials with the accessor authentication service.&quot;">
+    <objectiveURI>&quot;RQ0613_002&quot;</objectiveURI>
+  </packagedElement>
+  <packagedElement xsi:type="tdl:TestDescription" name="AAS_TD_CREATE_01">
+    <testConfiguration href="AAS_TC_01.tdlan2#//@packagedElement.36"/>
+    <behaviourDescription>
+      <behaviour xsi:type="tdl:CompoundBehaviour">
+        <comment body="&quot;&quot;"/>
+        <annotation value="&quot;Correct Accessor Creation&quot;">
+          <key href="AAS_TC_01.tdlan2#//@packagedElement.5"/>
+        </annotation>
+        <block>
+          <behaviour xsi:type="tdl:ActionReference">
+            <annotation>
+              <key href="AAS_TC_01.tdlan2#//@packagedElement.9"/>
+            </annotation>
+            <action href="AAS_TC_01.tdlan2#//@packagedElement.0"/>
+          </behaviour>
+          <behaviour xsi:type="tdl:ActionReference">
+            <annotation>
+              <key href="AAS_TC_01.tdlan2#//@packagedElement.8"/>
+            </annotation>
+            <action href="AAS_TC_01.tdlan2#//@packagedElement.1"/>
+          </behaviour>
+          <behaviour xsi:type="tdl:Message">
+            <sourceGate href="AAS_TC_01.tdlan2#//@packagedElement.36/@connection.0/@endPoint.1"/>
+            <target>
+              <annotation value="&quot;1&quot;">
+                <key href="AAS_TC_01.tdlan2#//@packagedElement.6"/>
+              </annotation>
+              <annotation value="&quot;AAA transmits a AAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS &quot;">
+                <key href="AAS_TC_01.tdlan2#//@packagedElement.7"/>
+              </annotation>
+              <targetGate href="AAS_TC_01.tdlan2#//@packagedElement.36/@connection.0/@endPoint.0"/>
+            </target>
+            <argument xsi:type="tdl:DataInstanceUse">
+              <argument>
+                <dataUse xsi:type="tdl:DataInstanceUse">
+                  <dataInstance xsi:type="tdl:SimpleDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.13"/>
+                </dataUse>
+                <parameter xsi:type="tdl:Member" href="AAS_TC_01.tdlan2#//@packagedElement.26/@member.0"/>
+              </argument>
+              <dataInstance xsi:type="tdl:StructuredDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.27"/>
+            </argument>
+          </behaviour>
+          <behaviour xsi:type="tdl:AlternativeBehaviour" testObjective="//@packagedElement.1">
+            <annotation value="&quot;3&quot;">
+              <key href="AAS_TC_01.tdlan2#//@packagedElement.6"/>
+            </annotation>
+            <annotation value="&quot;Check: Does the AAS send any NOK to AAA?&quot;">
+              <key href="AAS_TC_01.tdlan2#//@packagedElement.7"/>
+            </annotation>
+            <block>
+              <behaviour xsi:type="tdl:Message" testObjective="//@packagedElement.0">
+                <annotation value="&quot;2&quot;">
+                  <key href="AAS_TC_01.tdlan2#//@packagedElement.6"/>
+                </annotation>
+                <annotation value="&quot;Check: Does the AAS transmit an&#xD;&#xA;&#x9;&#x9; &#x9;eAAS_OK to AAA?&quot;">
+                  <key href="AAS_TC_01.tdlan2#//@packagedElement.7"/>
+                </annotation>
+                <sourceGate href="AAS_TC_01.tdlan2#//@packagedElement.36/@connection.0/@endPoint.0"/>
+                <target>
+                  <targetGate href="AAS_TC_01.tdlan2#//@packagedElement.36/@connection.0/@endPoint.1"/>
+                </target>
+                <argument xsi:type="tdl:DataInstanceUse">
+                  <argument>
+                    <dataUse xsi:type="tdl:DataInstanceUse">
+                      <dataInstance xsi:type="tdl:SimpleDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.20"/>
+                    </dataUse>
+                    <parameter xsi:type="tdl:Member" href="AAS_TC_01.tdlan2#//@packagedElement.28/@member.0"/>
+                  </argument>
+                  <dataInstance xsi:type="tdl:StructuredDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.29"/>
+                </argument>
+              </behaviour>
+              <behaviour xsi:type="tdl:VerdictAssignment">
+                <verdict xsi:type="tdl:DataInstanceUse">
+                  <dataInstance xsi:type="tdl:SimpleDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.3"/>
+                </verdict>
+              </behaviour>
+            </block>
+            <block>
+              <behaviour xsi:type="tdl:Message">
+                <sourceGate href="AAS_TC_01.tdlan2#//@packagedElement.36/@connection.0/@endPoint.0"/>
+                <target>
+                  <targetGate href="AAS_TC_01.tdlan2#//@packagedElement.36/@connection.0/@endPoint.1"/>
+                </target>
+                <argument xsi:type="tdl:DataInstanceUse">
+                  <argument>
+                    <dataUse xsi:type="tdl:DataInstanceUse">
+                      <dataInstance xsi:type="tdl:SimpleDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.22"/>
+                    </dataUse>
+                    <parameter xsi:type="tdl:Member" href="AAS_TC_01.tdlan2#//@packagedElement.28/@member.0"/>
+                  </argument>
+                  <dataInstance xsi:type="tdl:StructuredDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.29"/>
+                </argument>
+              </behaviour>
+              <behaviour xsi:type="tdl:VerdictAssignment">
+                <verdict xsi:type="tdl:DataInstanceUse">
+                  <dataInstance xsi:type="tdl:SimpleDataInstance" href="AAS_TC_01.tdlan2#//@packagedElement.4"/>
+                </verdict>
+              </behaviour>
+            </block>
+          </behaviour>
+        </block>
+      </behaviour>
+    </behaviourDescription>
+  </packagedElement>
+  <import>
+    <importedPackage href="AAS_TC_01.tdlan2#/"/>
+  </import>
+</tdl:Package>

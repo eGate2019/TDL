@@ -1,0 +1,437 @@
+/*
+Copyright (c) ETSI 2020.
+
+This software is subject to copyrights owned by ETSI. Non_exclusive permission
+is hereby granted, free of charge, to copy, reproduce and amend this file
+under the following conditions: It is provided "as is", without warranty of any
+kind, expressed or implied.
+
+ETSI shall never be liable for any claim, damages, or other liability arising
+from its use or inability of use.This permission does not apply to any documentation
+associated with this file for which ETSI keeps all rights reserved. The present
+copyright notice shall be included in all copies of whole or part of this
+file and shall not imply any sub_license right.
+*/
+
+//Basic data structures
+
+Package AAS_DATA {
+Data {
+ 
+type Integer;
+type UUID;
+type Boolean;
+type String;
+
+type Verdict ;
+Verdict PASS ;
+Verdict FAIL ;
+
+type Accessor with
+
+	optional aAccessorGroup of type AccessorGroup,
+	optional aAccessorUser of type AccessorUser
+;
+
+type AccessControl with
+		aAccessorIdentity of type AccessorIdentity,  // Identity of the accessor accessing the resource
+		aAccessorRights of type AccessorRights,  // Accessor rights (e.g. delete, update).
+		optional aGrantorIdentity of type AccessorIdentity   // Identity of the grantor
+		;
+
+type  AccessorRight;
+AccessorRight 0;
+AccessorRight 1;
+AccessorRight 2;
+AccessorRight 3;
+AccessorRight 4;
+AccessorRight 5;
+AccessorRight 6;
+AccessorRight 7;
+AccessorRight 8;
+AccessorRight 9;
+AccessorRight 10;
+AccessorRight 11;
+AccessorRight 12;
+AccessorRight 13;
+AccessorRight 14;
+AccessorRight 15;
+AccessorRight 16;
+AccessorRight 17;
+AccessorRight 18;
+AccessorRight 19;
+AccessorRight 20;
+AccessorRight 21;
+AccessorRight 22;
+AccessorRight 23;
+AccessorRight 24;
+AccessorRight 25;
+AccessorRight 26;
+AccessorRight 27;
+AccessorRight 28;
+AccessorRight 29;
+AccessorRight 30;
+AccessorRight 31;
+
+type AccessorRights with 
+    optional eRight_Bit1 of type AccessorRight  ,
+	optional eRight_Bit2 of type AccessorRight  ,
+	optional eRight_Bit3 of type AccessorRight  ,
+	optional eRight_Bit4 of type AccessorRight  ,
+	optional eRight_Bit5 of type AccessorRight  ,
+	optional eRight_Bit6 of type AccessorRight  ,
+	optional eRight_Bit7 of type AccessorRight  ,
+	optional eRight_Bit8 of type AccessorRight  ,
+	optional eRight_Bit9 of type AccessorRight  ,
+	optional eRight_Bit10 of type AccessorRight  ,
+	optional eRight_Bit11 of type AccessorRight  ,
+	optional eRight_Bit12 of type AccessorRight  ,
+	optional eRight_Bit13 of type AccessorRight  ,
+	optional eRight_Bit14 of type AccessorRight  ,
+	optional eRight_Bit15 of type AccessorRight  ,
+	optional eRight_Bit16 of type AccessorRight  ,
+	optional eRight_Bit17 of type AccessorRight  ,
+	optional eRight_Bit18 of type AccessorRight  ,
+	optional eRight_Bit19 of type AccessorRight  ,
+	optional eRight_Bit20 of type AccessorRight  ,
+	optional eRight_Bit21 of type AccessorRight  ,
+	optional eRight_Bit22 of type AccessorRight  ,
+	optional eRight_Bit23 of type AccessorRight  ,
+	optional eRight_Bit24 of type AccessorRight  ,
+	optional eRight_Bit25 of type AccessorRight  ,
+	optional eRight_Bit26 of type AccessorRight  ,
+	optional eRight_Bit27 of type AccessorRight  ,
+	optional eRight_Bit28 of type AccessorRight  ,
+	optional eRight_Bit29 of type AccessorRight  ,
+	optional eRight_Bit30 of type AccessorRight  ,
+	optional eRight_Bit31 of type AccessorRight  ,
+	optional eRight_Bit32 of type AccessorRight  	
+	;	
+
+
+type AccessControlList with 
+aAC of type AccessControl,
+optional aACL of type AccessControlList;
+  // Access control list
+type MembersOfGroup with 
+aAccessorIndentity of type AccessorIdentity,
+optional aMemberOfGroup of type MembersOfGroup; 
+
+type AccessorIdentity;  // accessor identity
+type AccessorGroup with
+
+	aAccessorIdentity of type AccessorIdentity,  // Identity of the accessor
+	aMembersOfGroup of type MembersOfGroup,  // Members of the group
+	aACL of type AccessControlList  // Access control list
+;
+
+type AccessorUser with
+
+	aAccessorIdentity of type AccessorIdentity,  // Identity of the accessor
+	optional aAccessorConditions of type AccessorConditions ,  // Accessor conditions
+	aACL of type AccessControlList  // Access control list
+;
+
+
+
+
+type AccessorConditions with
+	optional aAccessConditionsBiometry of type AccessorConditionsBiometry ,
+	optional aAccessConditionsPIN of type AccessorConditionsPIN ,
+	optional aAccessConditionsTokens of type AccessorConditionsToken ,
+	optional aAccessConditionHostDomain of type AccessConditionHostDomain 
+;
+
+
+type AccessorConditionsBiometry;
+AccessorConditionsBiometry	eReservedForFuture ; // Reserved for future usage
+
+
+
+type AccessorConditionsPIN ;
+
+AccessorConditionsPIN	ePinNumeric ;  // The user shall present a numeric PIN
+AccessorConditionsPIN	ePinPassword;  // The user shall present a password
+AccessorConditionsPIN	ePinPattern;  // The user shall present a graphical pattern
+
+
+type AccessorConditionsToken;
+AccessorConditionsToken	eTokenCertificate;  // A token verification by using the certificate shall be performed
+
+
+
+type AccessConditionHostDomain;
+
+AccessorRight eAASAccessRight_RequiresSecurePipe;
+AccessorRight eAASAccessRight_Create   ;
+AccessorRight eAASAccessRight_Delete   ;
+AccessorRight eAASAccessRight_Update   ;
+AccessorRight eAASAccessRight_UpdateACL ;
+AccessorRight eAASAccessRight_UpdateGroup ;
+AccessorRight eAASAccessRight_UpdateCredentialPolicy ;
+AccessorRight eAASAccessRight_UpdateCredentialStatus ;
+
+
+
+/* Maximum size of each side of the entry panel for pattern */
+type maxEntryPanelDimension;
+
+
+/* Coordinate of point in pattern from the top_left corner, starting with index 1 */
+type PatternPoint with
+	x of type Integer ,  // X coordinate
+	y of type Integer   // Y coordinate
+;
+type PatternPoints with
+aPatternPoint of type PatternPoint,
+optional aPatternPoints of type PatternPoints;
+
+type NumericString;
+type PrintableString;
+type PatternPoint;
+type HostDomainCredential;
+type Certificates;
+type AccessorCredentials with
+	// Credentials of type PIN
+	optional aPinNumericCredential of type NumericString   ,  // Numeric PIN
+	optional aPinPasswordCredential of type PrintableString   ,  // Password
+	optional aPinPatternCredential  of type PatternPoints   ,  // Graphical pattern
+	// Credentials for the token based verification
+	optional aCertificates of type Certificates,  // Set of X.509 certificates of the accessor
+	// Credentials of type host domain
+	optional aHostDomainCredential of type UUID  // Set of SCL host domains
+;
+
+
+type PinNumericPolicy with
+
+	aIsDisableForbidden of type Boolean ,  // Disabling forbidden
+	aMinSize of type Integer  ,  // Minimum size of PIN
+	aMaxSize of type Integer  ,  // Maximum size of PIN
+	aMaxAttempts of type Integer    // Maximum number of attempts
+;
+
+type PinPasswordPolicy with
+
+	aMinSize of type Integer,  // Minimum length of password
+	aMaxSize of type Integer,  // Maximum length of password
+	aRequiresLowerCaseLetter of type Boolean,  // At least one lower case letter is required
+	aRequiresUpperCaseLetter of type Boolean,  // At least one upper case letter is required
+	aRequiresNumber of type Boolean ,  // At least on numeric digit is required
+	aRequiresSymbol of type Boolean ,  // At least one special character is required
+	aMaxAttempts of type Integer   // Maximum number of attempts
+;
+
+type PinPatternPolicy with
+
+	aMinSize of type Integer,  // Minimum number of points in pattern
+	aMaxSize of type Integer,  // Maximum number of points in pattern
+	aEntryPanelMinSize of type Integer,
+	aSamePointMultipleTimes of type Boolean,  // If a point can occur multiple times
+	aMaxAttempts of type Integer  // Maximum number of attempts
+;
+
+type AccessorCredentialsPolicy with
+
+	optional aPinNumericPolicy of type PinNumericPolicy ,  // Numeric PIN policy
+	optional aPinPasswordPolicy of type PinPasswordPolicy ,  // Password policy
+	optional aPinPatternPolicy of type PinPatternPolicy   // Graphical pattern policy
+;
+
+
+type AccessorCommonCredentialStatus with
+
+	aIsDisabled of type Boolean,  // indicates if credential is disabled
+	aRemainingAttempts of type Integer   // remaining number of attempts
+;
+
+type PinNumericCredentialStatus with
+
+	aCommonStatus of type AccessorCommonCredentialStatus
+;
+
+type PinPasswordCredentialStatus with
+
+	aCommonStatus of type AccessorCommonCredentialStatus
+;
+
+type PinPatternCredentialStatus with
+
+	aCommonStatus of type AccessorCommonCredentialStatus
+;
+
+type AccessorCredentialsStatus with
+
+	optional aPinNumericStatus of type PinNumericCredentialStatus ,
+	optional aPinPasswordStatus of type PinPasswordCredentialStatus ,
+	optional aPinPatternStatus of type PinPatternCredentialStatus 
+;
+
+
+type AAS_GET_CAPABILITIES;
+
+AAS_GET_CAPABILITIES eGlobalAuthenticationService ;  // retrieve user accessors available in the SSP host
+AAS_GET_CAPABILITIES eAccessorStatus ;  // retrieve status related to the accessor authentication service gate
+
+
+type AAS_OP_GET_CAPABILITIES_Service_Command with
+
+aRequestType of type AAS_GET_CAPABILITIES;
+
+type AccessorList with
+aAccessor of type Accessor,
+optional aAccessorList of type AccessorList;
+type VersionType;
+
+
+
+type GlobalAuthenticationService with  // for aRequestType set to eGlobalAuthenticationService
+	
+		aAASVersion of type VersionType,  // release of the AAS service
+		aAccessorList of type AccessorList,  // List of accessors
+		aACL of type AccessControlList  // Access control list
+	;
+type AAS_OP_GET_CAPABILITIES_Service_Response_Parameter with
+
+		aGlobalAuthenticationService of type GlobalAuthenticationService,  // for aRequestType set to eGlobalAuthenticationService
+		aAASVersion of type VersionType,  // release of the AAS service
+		aAccessorList of type AccessorList,  // List of accessors
+		aACL of type AccessControlList  // Access control list
+	;
+type AccessorStatus with  // for aRequestType set to eAccessorStatus
+	
+		aIsAuthenticated of type Boolean,  // indicates if the accessor is authenticated
+		aAccessorConditions of type AccessorConditions,  // accessor conditions
+		aAccessorCredentialsStatus of type AccessorCredentialsStatus,  // status of credentials of the accessor
+		aAccessorCredentialsPolicy of type AccessorCredentialsPolicy  // policies for the credentials of the accessor
+	;
+
+	//Relevant data definitions
+
+	
+// Response status
+//---------------
+type AAS_Service_Response;
+AAS_Service_Response eAAS_OK ; // Operation successful
+AAS_Service_Response eAAS_E_CMD_PAR_UNKNOWN ; // Unknown parameters used for an operation
+AAS_Service_Response eAAS_E_NOK ; // Operation failed
+AAS_Service_Response eAAS_ACL_RULES_VIOLATIONS ; // The operation violates the ACL conditions
+AAS_Service_Response eAAS_NOT_AUTHENTICATED ; // The accessor is not authenticated
+AAS_Service_Response eAAS_POLICY_RULES_VIOLATIONS ; // The operation violates the credentials policy
+
+type AAS_OP_GET_CAPABILITIES_Service_Response with
+
+	aAAS_Service_Response of type AAS_Service_Response,
+	optional aParameter of type AAS_OP_GET_CAPABILITIES_Service_Response_Parameter
+;
+
+
+type AAS_ADMIN_CREATE_ACCESSOR_Service_Command with
+
+	aAccessor of type Accessor,  // Accessor to be created
+	aAccessorConditions of type AccessorConditions,  // Conditions
+	aCredential of type AccessorCredentials,  // Credentials for the accessor
+	optional aCredentialsPolicy of type AccessorCredentialsPolicy ,  // Policy for the provided accessors
+	optional aCredentialsStatus of type AccessorCredentialsStatus   // Status of credentials
+;
+
+
+type AAS_ADMIN_CREATE_ACCESSOR_Service_Response with
+
+	aAAS_Service_Response of type AAS_Service_Response
+;
+
+
+type AAS_ADMIN_UPDATE_ACCESSOR_Service_Command with
+
+	aAccessorIdentity of type AccessorIdentity,  // Identity of the accessor
+	optional aMembersOfGroup of type MembersOfGroup ,  // Members of the group
+	optional aACL of type AccessControlList ,  // Access control list
+	optional aSetAccessorConditions of type AccessorConditions ,  // Conditions to be set
+	optional aRemoveAccessorConditions of type AccessorConditions ,  // Conditions to be removed
+	optional aSetCredential of type AccessorCredentials ,  // Credentials to be set
+	optional aRemoveCredential of type AccessorConditions ,  // List of credentials to be removed
+	optional aCredentialsPolicy of type AccessorCredentialsPolicy ,  // Credential policy
+	optional aCredentialsStatus of type AccessorCredentialsStatus   // Status of credentials
+;
+
+
+type AAS_ADMIN_UPDATE_ACCESSOR_Service_Response with
+
+	aAAS_Service_Response of type AAS_Service_Response
+;
+
+
+type AAS_ADMIN_DELETE_ACCESSOR_Service_Command with
+
+	aAccessorIdentity of type AccessorIdentity  // Identity of the accessor to delete
+;
+
+
+type AAS_ADMIN_DELETE_ACCESSOR_Service_Response with 
+
+	aAAS_Service_Response of type AAS_Service_Response 
+;
+
+type Credential with
+	
+		aPinNumericCredential  of type NumericString,  // Numeric PIN
+		aPinPasswordCredential  of type PrintableString,  // Password
+		aPinPatternCredential  of type PrintableString,  // Graphical pattern
+		aAccessorTokenCertificationPath  of type Certificates,
+		aHostDomainCredential  of type String
+;
+type AAS_OP_AUTHENTICATE_ACCESSOR_Service_Command with
+	aCredential of type Credential
+;
+
+
+type AAS_OP_AUTHENTICATE_ACCESSOR_Service_Response_Parameter with
+
+	optional aCredentialsStatus of type AccessorCredentialsStatus ,  // Status of credentials after the command
+	optional aServiceTokenCertificationPath of type Certificates   // Certification path of  the token generated by the accessor authentication service
+;
+
+type AAS_OP_AUTHENTICATE_ACCESSOR_Service_Response with
+
+	aAAS_Service_Response of type AAS_Service_Response, 
+	optional aParameter of type AAS_OP_AUTHENTICATE_ACCESSOR_Service_Response_Parameter 
+;
+
+
+type AAS_OP_ACCESS_SERVICE_Service_Command with
+
+	aServiceIdentifier of type UUID,  // Identifier of the service gate
+	aUseSecurePipe of type Boolean   // Indication of secure pipe is requested
+;
+
+
+type AAS_OP_ACCESS_SERVICE_Service_Response_Parameter with
+
+	aGateIdentifier of type UUID  // Identifier of the service gate
+;
+
+type AAS_OP_ACCESS_SERVICE_Service_Response with
+
+	aAAS_Service_Response of type AAS_Service_Response ,
+	optional aParameter of type AAS_OP_ACCESS_SERVICE_Service_Response_Parameter 
+;
+
+
+type AAS_OP_GET_CHALLENGE_Service_Command ;
+
+
+type AAS_OP_GET_CHALLENGE_Service_Response_Parameter with
+
+	aChallenge of type String ,
+	aCertificates of type Certificates  // Certificates of the accessor authentication service
+;
+
+type AAS_OP_GET_CHALLENGE_Service_Response with
+
+ 	aAAS_Service_Response of type AAS_Service_Response  ,
+	optional aParameter of type AAS_OP_GET_CHALLENGE_Service_Response_Parameter 
+;
+
+}
+}

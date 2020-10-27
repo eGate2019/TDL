@@ -16,6 +16,9 @@ file and shall not imply any sub-license right.
 Package AAS_TD_001 {
 
 	Import all from AAS_TC_001 ;
+	Import all from ADM_TD_001 ;
+	Import all from AAS_DATA ;
+	
 		//Test objectives (copied verbatim from source document)
 	
     Test Objective AAS_TP1 {
@@ -28,15 +31,80 @@ Package AAS_TD_001 {
 	}
 	
 	//Test description definition
+	AccessorIdentity accessor_test_1 	; //Accessor identity to create
+	NumericString 1234					; //Pincode
+	Boolean True						; //True
+	Boolean False						; //False	
+	Integer 4							;
+	Integer 6							;
+	Integer 3							;	
 	
+	//Define a condition of successful authentication
+	//-----------------------------------------------
+	AccessorConditions _aAccessorConditions(aAccessConditionsPIN=ePinNumeric); //Accessor condition using pincode
+	
+	//Define an access control
+	//------------------------
+	
+	AccessControl _aAccessControl(
+		aAccessorIdentity=accessor_test_1,
+		aAccessorRights=eAASAccessRight_Create
+	);
+	
+	//Create the list of the AccessControl
+	//------------------------------------
+	AccessControlList _aACL containing {_aAccessControl};
+	
+	//Create the AccessorUser
+	//-----------------------
+	
+	AccessorUser _aAccessorUser(
+		aAccessorIdentity=accessor_test_1,          //The identity
+		aAccessorConditions = _aAccessorConditions, //The conditions
+		aACL=_aACL
+	);
+	Accessor _aAccessor(aAccessorUser=_aAccessorUser);
+	
+
+	
+	AccessorCredentials _aAccessorCredentials (aPinNumericCredential=1234);
+	PinNumericPolicy _aPinNumericPolicy (
+		aIsDisableForbidden = True ,  // Disabling forbidden
+		aMinSize=4  ,  // Minimum size of PIN
+		aMaxSize=6  ,  // Maximum size of PIN
+		aMaxAttempts=3    // Maximum number of attempts
+		);
+	
+	AccessorCredentialsPolicy _aAccessorCredentialsPolicy(
+
+	aPinNumericPolicy = _aPinNumericPolicy   // Numeric PIN policy
+	);
+
+	AAS_ADMIN_CREATE_ACCESSOR_Service_Command aAAS_ADMIN_CREATE_ACCESSOR_Service_Command (
+		aAccessor=_aAccessor,  // Accessor to be created
+		aCredential=_aAccessorCredentials,  // Credentials for the accessor
+		aCredentialsPolicy=_aAccessorCredentialsPolicy   // Policy for the provided accessors
+	);
+	Type ServiceId;
+ 	Type Pipe;
+	Pipe PIPE_AAA;
+	ServiceId ACCESSOR_SUT;
+
 	Test Description AAS_TD_CREATE_01 uses configuration AAS_TC_001
 	{
 		//Pre_conditions and preamble from the source document
 	perform action preambles with {PREAMBLE;};
 	perform action preConditions with {PRECONDITION;};
+
+	//Open a session between AAS and AAA
+	//----------------------------------
+	execute ADM_TD_BIND_01(pipe_application= PIPE_AAA,serviceId=ACCESSOR_SUT) with {
+	STEP:"Preamble";
+	PROCEDURE: "Binding of the AAA and the AAS";	
+	};
 	
  	//Test sequence
- 	AAA.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Command(accessor = aAccessor_OK) to AAS.g with {
+ 	AAA.g sends aAAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS.g with {
 	STEP : "1" ;
 	PROCEDURE : "AAA transmits a AAS_ADMIN_CREATE_ACCESSOR_Service_Command to AAS " ;
 	} ;

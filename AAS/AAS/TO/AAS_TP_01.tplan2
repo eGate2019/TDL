@@ -20,7 +20,7 @@ Package objectives {
     Test Purpose {   
         TP Id TP_CREATION_ACCESSOR_OK
         Test objective "Valid Creation of an Accessor."
-        PICS Selection ACCESSOR_CREATION
+        PICS Selection ACCESSOR_CREATION_OK
         Expected behaviour 
         ensure that {  
             when { 

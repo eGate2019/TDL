@@ -7,11 +7,15 @@
     <semanticResources>AAS_test_descriptions_01.tdlan2</semanticResources>
     <semanticResources>AAS_Setup_01.tdlan2</semanticResources>
     <semanticResources>AAS_test_descriptions_01.tdlan2.tdl</semanticResources>
-    <semanticResources>AAS_DA_01.tplan2</semanticResources>
-    <semanticResources>AAS_DO_01.tplan2</semanticResources>
-    <semanticResources>AAS_TP_01.tplan2</semanticResources>
-    <semanticResources>AAS_TD_01.tdlan2.tdl</semanticResources>
-    <semanticResources>AAS_TC_01.tdlan2</semanticResources>
+    <semanticResources>AAS/TO/AAS_DA_01.tplan2</semanticResources>
+    <semanticResources>AAS/TO/AAS_DO_01.tplan2</semanticResources>
+    <semanticResources>AAS/TD/AAS_TC_01.tdlan2</semanticResources>
+    <semanticResources>AAS/TD/AAS_TD_01.tdlan2</semanticResources>
+    <semanticResources>AAS/TO/AAS_TP_01.tplan2</semanticResources>
+    <semanticResources>ADM/TO/ADM_DA_01.tplan2</semanticResources>
+    <semanticResources>ADM/TD/ADM_TC_01.tdlan2</semanticResources>
+    <semanticResources>ADM/TD/ADM_TD_01.tdlan2</semanticResources>
+    <semanticResources>AAS/TD/AAS_DA_01.tdlan2</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_EqUv8AonEeud75_5rT9kAQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MyhHABHmEeu9YNLwtFSqjA" name="new TDL Behavior" repPath="#_Mf8JQBHmEeu9YNLwtFSqjA" changeId="4ba1a01d-4ffd-474d-ad89-255db4eddc92">
@@ -400,8 +404,8 @@
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MnPEEBHmEeu9YNLwtFSqjA" name="PASS">
-      <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
-      <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+      <target xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+      <semanticElements xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
       <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_NNWo4xHmEeu9YNLwtFSqjA" x="50" y="273" height="50" width="423"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_MqB5YBHmEeu9YNLwtFSqjA" showIcon="false" borderSize="1" borderSizeComputationExpression="1" workspacePath="org.etsi.mts.tdl.graphical.viewpoint/images/Verdict.svg">
         <customFeatures>labelColor</customFeatures>
@@ -409,14 +413,14 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:InteractionUseMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']"/>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_MrQocBHmEeu9YNLwtFSqjA">
-        <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
-        <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+        <target xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+        <semanticElements xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
         <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']/@subNodeMappings[name='verdictAssignment.config']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_MqCgcRHmEeu9YNLwtFSqjA" name="FAIL">
-      <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
-      <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+      <target xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+      <semanticElements xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
       <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_NNWo5BHmEeu9YNLwtFSqjA" x="50" y="533" height="50" width="423"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_MrKh0BHmEeu9YNLwtFSqjA" showIcon="false" borderSize="1" borderSizeComputationExpression="1" workspacePath="org.etsi.mts.tdl.graphical.viewpoint/images/Verdict.svg">
         <customFeatures>labelColor</customFeatures>
@@ -424,8 +428,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:InteractionUseMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']"/>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_MrRPgBHmEeu9YNLwtFSqjA">
-        <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
-        <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+        <target xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+        <semanticElements xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
         <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']/@subNodeMappings[name='verdictAssignment.config']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
@@ -946,30 +950,30 @@
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_f9WVwBL6Eeu9YNLwtFSqjA" name="PASS">
-      <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
-      <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+      <target xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+      <semanticElements xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
       <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_gXJ84xL6Eeu9YNLwtFSqjA" x="50" y="253" height="50" width="230"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_f-2KkBL6Eeu9YNLwtFSqjA" showIcon="false" borderSize="1" borderSizeComputationExpression="1" workspacePath="org.etsi.mts.tdl.graphical.viewpoint/images/Verdict.svg">
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:InteractionUseMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']"/>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_gAB2UBL6Eeu9YNLwtFSqjA">
-        <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
-        <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+        <target xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
+        <semanticElements xmi:type="tdl:Message" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.2"/>
         <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']/@subNodeMappings[name='verdictAssignment.config']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_f-2KkhL6Eeu9YNLwtFSqjA" name="FAIL">
-      <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
-      <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+      <target xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+      <semanticElements xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
       <graphicalFilters xmi:type="diagram:AbsoluteBoundsFilter" uid="_gXJ85BL6Eeu9YNLwtFSqjA" x="50" y="513" height="50" width="230"/>
       <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_gABPQBL6Eeu9YNLwtFSqjA" showIcon="false" borderSize="1" borderSizeComputationExpression="1" workspacePath="org.etsi.mts.tdl.graphical.viewpoint/images/Verdict.svg">
         <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:InteractionUseMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']"/>
       <ownedDiagramElements xmi:type="diagram:DNode" uid="_gACdYBL6Eeu9YNLwtFSqjA">
-        <target xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
-        <semanticElements xmi:type="tdl:VerdictAssignment" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+        <target xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
+        <semanticElements xmi:type="tdl:AlternativeBehaviour" href="AAS_TD_01.tdlan2.tdl#//@packagedElement.2/@behaviourDescription/@behaviour/@block/@behaviour.3"/>
         <actualMapping xmi:type="description_2:NodeMapping" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']/@ownedRepresentations[name='TestDescriptionDiagram']/@defaultLayer/@containerMappings[name='verdictAssignment']/@subNodeMappings[name='verdictAssignment.config']"/>
       </ownedDiagramElements>
     </ownedDiagramElements>

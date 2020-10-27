@@ -13,14 +13,12 @@ copyright notice shall be included in all copies of whole or part of this
 file and shall not imply any sub-license right.
 */
 Package AAS_TC_001 {
-
+ 	Import all from AAS_DATA; 
 	Action preambles : "Preamble:The generic procedure open a pipe session on the AAS.";
 	Action preConditions : "Pre_test Conditions:RC Connection Reconfiguration" ;
 	
 	
-	Type Verdict ;
-	Verdict PASS ;
-	Verdict FAIL ;
+
 	
 	//User_defined annotation types
 	Annotation TITLE ; //Test description title
@@ -38,31 +36,8 @@ Package AAS_TC_001 {
 		from : "RQ0613_002" ;
 	 	description : "Prior to access to a resource, an accessor shall authenticate itself based on some credentials with the accessor authentication service." ;
 	}
-	//Relevant data definitions
-	//Type of accessor generating different errors according to the test objectives
-	//-----------------------------------------------------------------------------
-	Type Accessor;
-	Accessor aAccessor_OK ; //Command successful
-	Accessor aAccessor_E_CMD_PAR_UNKNOWN ; // Unknown parameters used for an operation
-	Accessor aAccessor_E_NOK ; // Operation failed
-	Accessor aAccessor_ACL_RULES_VIOLATIONS ; // The operation violates the ACL conditions
-	Accessor aAccessor_NOT_AUTHENTICATED ; // The accessor is not authenticated
-	Accessor aAccessor_POLICY_RULES_VIOLATIONS ; // The operation violates the credentials policy
-	
-	// Response status
-	//---------------
-	Type AAS_Service_Response;
-	AAS_Service_Response eAAS_OK ; // Operation successful
-	AAS_Service_Response eAAS_E_CMD_PAR_UNKNOWN ; // Unknown parameters used for an operation
-	AAS_Service_Response eAAS_E_NOK ; // Operation failed
-	AAS_Service_Response eAAS_ACL_RULES_VIOLATIONS ; // The operation violates the ACL conditions
-	AAS_Service_Response eAAS_NOT_AUTHENTICATED ; // The accessor is not authenticated
-	AAS_Service_Response eAAS_POLICY_RULES_VIOLATIONS ; // The operation violates the credentials policy
-	//Type of Accessor create command
-	//-------------------------------
-	Type AAS_ADMIN_CREATE_ACCESSOR_Service_Command(accessor of type Accessor);
-	AAS_ADMIN_CREATE_ACCESSOR_Service_Command aAAS_ADMIN_CREATE_ACCESSOR_Service_Command (accessor=?) ;
-	
+
+
 	//Type of accessor create response
 	//--------------------------------
 	Type AAS_ADMIN_CREATE_ACCESSOR_Service_Response(status of type AAS_Service_Response) ;
@@ -93,6 +68,9 @@ Package AAS_TC_001 {
 		create SUT AAS of type AAS_CT ;
 	 	connect AAS.g to AAA.g ;
 	}
+	
+
+	
  } 	with {
 	Note : "AAS" ;
  	TITLE : "Correct Accessor Creation" ;

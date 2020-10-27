@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tdl:Package xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:structured="http://www.etsi.org/spec/TDL/1.3.1/structured" xmlns:tdl="http://www.etsi.org/spec/TDL/1.4.1" name="objectives">
+  <packagedElement xsi:type="structured:StructuredTestObjective" name="ACCESSOR_BIND_OK" description="Valid Opening of a session.">
+    <expectedBehaviour name="Expected behaviour">
+      <whenClause>
+        <events xsi:type="structured:EventOccurrenceSpecification">
+          <entityReference>
+            <comment body="the"/>
+            <entity href="ADM_DO_01.tplan2#//@packagedElement.1"/>
+          </entityReference>
+          <eventReference>
+            <event href="ADM_DO_01.tplan2#//@packagedElement.3"/>
+          </eventReference>
+          <eventArgument xsi:type="structured:LiteralValue" name="aEVT_ADM_BIND">
+            <comment body="the"/>
+            <content name="pipe_tester"/>
+            <content name="service_id"/>
+          </eventArgument>
+        </events>
+      </whenClause>
+      <thenClause>
+        <events xsi:type="structured:EventOccurrenceSpecification">
+          <entityReference>
+            <comment body="the"/>
+            <entity href="ADM_DO_01.tplan2#//@packagedElement.2"/>
+          </entityReference>
+          <eventReference>
+            <event href="ADM_DO_01.tplan2#//@packagedElement.3"/>
+          </eventReference>
+          <eventArgument xsi:type="structured:LiteralValue" name="aAAS_ADMIN_CREATE_ACCESSOR_Service_Response">
+            <comment body="the"/>
+            <content name="pipe_sut"/>
+            <content name="service_id"/>
+          </eventArgument>
+        </events>
+      </thenClause>
+    </expectedBehaviour>
+    <picsReference>
+      <pics href="ADM_TP_01.tplan2#|4"/>
+    </picsReference>
+  </packagedElement>
+  <import>
+    <importedPackage href="ADM_DO_01.tplan2#/"/>
+  </import>
+  <import>
+    <importedPackage href="ADM_DA_01.tplan2#/"/>
+  </import>
+</tdl:Package>

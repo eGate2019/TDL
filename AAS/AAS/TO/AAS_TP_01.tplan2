@@ -24,7 +24,7 @@ Package objectives {
         Expected behaviour 
         ensure that {  
             when { 
-                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command containing aAccessor_OK ; 
+                the AAA entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Command  containing aAccessor_OK ; 
             } then {
                 the AAS entity sends the aAAS_ADMIN_CREATE_ACCESSOR_Service_Response containing eAAS_OK;
             }

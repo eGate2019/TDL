@@ -16,6 +16,9 @@
     <semanticResources>ADM/TD/ADM_TC_01.tdlan2</semanticResources>
     <semanticResources>ADM/TD/ADM_TD_01.tdlan2</semanticResources>
     <semanticResources>AAS/TD/AAS_DA_01.tdlan2</semanticResources>
+    <semanticResources>ADM/TO/ADM_DO_01.tplan2</semanticResources>
+    <semanticResources>ADM/TO/ADM_TP_01.tplan2</semanticResources>
+    <semanticResources>ADM/TO/ADM_TP_01.tplan2.tdl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_EqUv8AonEeud75_5rT9kAQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.etsi.mts.tdl.graphical.viewpoint/description/TDL.odesign#//@ownedViewpoints[name='org.etsi.mts.tdl']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MyhHABHmEeu9YNLwtFSqjA" name="new TDL Behavior" repPath="#_Mf8JQBHmEeu9YNLwtFSqjA" changeId="4ba1a01d-4ffd-474d-ad89-255db4eddc92">

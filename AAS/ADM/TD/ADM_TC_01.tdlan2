@@ -1,0 +1,77 @@
+/*
+Copyright (c) ETSI 2020.
+
+This software is subject to copyrights owned by ETSI. Non-exclusive permission
+is hereby granted, free of charge, to copy, reproduce and amend this file
+under the following conditions: It is provided "as is", without warranty of any
+kind, expressed or implied.
+
+ETSI shall never be liable for any claim, damages, or other liability arising
+from its use or inability of use.This permission does not apply to any documentation
+associated with this file for which ETSI keeps all rights reserved. The present
+copyright notice shall be included in all copies of whole or part of this
+file and shall not imply any sub-license right.
+*/
+Package ADM_TC_001 {
+	Action preambles : "Preamble:The generic procedure open a pipe session on a service.";
+	Action preConditions : "Pre_test Conditions:RC Connection Reconfiguration" ;
+	
+	
+	//User_defined annotation types
+	Annotation TITLE ; //Test description title
+	Annotation STEP ; //Step identifiers in source documents
+	Annotation PROCEDURE ; //Informal textual description of a test step
+	Annotation PRECONDITION ; //Identify pre_condition behaviour
+	Annotation PREAMBLE ; //Identify preamble behaviour.
+	
+	//Test objectives (copied verbatim from source document)
+	Test Objective AAS_TP1 {
+		from : "RQ000_001" ;
+	 	description : "Prior to access to a service, an application shall open a session by using ADMistration Gate." ;
+	}
+	Type Verdict ;
+	Verdict PASS ;
+	Verdict FAIL ;
+	
+	//User_defined time units
+ 	Time Second;
+ 	Second five;
+ 	Type ServiceId;
+ 	Type Pipe;
+ 	
+ 	Type EVT_ADM_BIND (
+		aPipe of type Pipe,
+		aServiceId of type ServiceId
+		);
+	
+	EVT_ADM_BIND aEVT_ADM_BIND(aPipe=*,aServiceId=?) ;
+
+	
+	 //Gate type definitions and type of accepted message per gate
+	 //-----------------------------------------------------------
+	Gate Type ADM_Tester_GT accepts EVT_ADM_BIND;
+	Gate Type ADM_SUT_GT accepts EVT_ADM_BIND;
+	
+	//Component type definitions
+	Component Type ADM_SUT_CT having {
+		gate g of type ADM_SUT_GT;
+	}
+	Component Type ADM_Tester_CT having {
+		variable sut_session of type EVT_ADM_BIND;
+		gate g of type ADM_Tester_GT;
+	}
+	
+	 //Test configuration definition
+	Test Configuration ADM_TC_001 {
+		//Create the tester as an Accessor Authentication Application
+		create Tester ADM_Tester of type ADM_Tester_CT;
+		//Create the SUT as as an Accessor Authentication Service 
+		create SUT ADM_SUT of type ADM_SUT_CT ;
+	 	connect ADM_Tester.g to ADM_SUT.g ;
+	}
+	
+ } 	with {
+	Note : "ADM" ;
+ 	TITLE : "Correct Session Opening" ;
+	}
+ 

@@ -31,7 +31,11 @@ Package AAS_TD_001 {
 	}
 	
 	//Test description definition
-	AccessorIdentity accessor_test_1 	; //Accessor identity to create
+	AccessorIdentity accessor_test_0_ID	; //Accessor identity to create
+	Type ServiceId						; //Service identifier
+ 	Type Pipe							; //Pipe
+	Pipe PIPE_AAA						; //Pipe identifier for the AAA gate
+	ServiceId accessor_sut				; //Service identifier
 	NumericString 1234					; //Pincode
 	Boolean True						; //True
 	Boolean False						; //False	
@@ -47,7 +51,7 @@ Package AAS_TD_001 {
 	//------------------------
 	
 	AccessControl _aAccessControl(
-		aAccessorIdentity=accessor_test_1,
+		aAccessorIdentity=accessor_test_0_ID,
 		aAccessorRights=eAASAccessRight_Create
 	);
 	
@@ -59,14 +63,17 @@ Package AAS_TD_001 {
 	//-----------------------
 	
 	AccessorUser _aAccessorUser(
-		aAccessorIdentity=accessor_test_1,          //The identity
+		aAccessorIdentity=accessor_test_0_ID,          //The identity
 		aAccessorConditions = _aAccessorConditions, //The conditions
-		aACL=_aACL
+		aACL=_aACL									//The ACL
 	);
+	
+	//Creation of the Accessor
+	//------------------------
 	Accessor _aAccessor(aAccessorUser=_aAccessorUser);
 	
-
-	
+	//Creation of the accessor credentials
+	//------------------------------------
 	AccessorCredentials _aAccessorCredentials (aPinNumericCredential=1234);
 	PinNumericPolicy _aPinNumericPolicy (
 		aIsDisableForbidden = True ,  // Disabling forbidden
@@ -74,21 +81,20 @@ Package AAS_TD_001 {
 		aMaxSize=6  ,  // Maximum size of PIN
 		aMaxAttempts=3    // Maximum number of attempts
 		);
-	
+		
+	//Accessor credential policy
+	//--------------------------
 	AccessorCredentialsPolicy _aAccessorCredentialsPolicy(
-
-	aPinNumericPolicy = _aPinNumericPolicy   // Numeric PIN policy
-	);
-
+		aPinNumericPolicy = _aPinNumericPolicy   // Numeric PIN policy
+		);
+	//Creation an instance of AAS_ADMIN_CREATE_ACCESSOR_Service_Command
+	 
 	AAS_ADMIN_CREATE_ACCESSOR_Service_Command aAAS_ADMIN_CREATE_ACCESSOR_Service_Command (
 		aAccessor=_aAccessor,  // Accessor to be created
 		aCredential=_aAccessorCredentials,  // Credentials for the accessor
 		aCredentialsPolicy=_aAccessorCredentialsPolicy   // Policy for the provided accessors
 	);
-	Type ServiceId;
- 	Type Pipe;
-	Pipe PIPE_AAA;
-	ServiceId ACCESSOR_SUT;
+
 
 	Test Description AAS_TD_CREATE_01 uses configuration AAS_TC_001
 	{
@@ -98,7 +104,7 @@ Package AAS_TD_001 {
 
 	//Open a session between AAS and AAA
 	//----------------------------------
-	execute ADM_TD_BIND_01(pipe_application= PIPE_AAA,serviceId=ACCESSOR_SUT) with {
+	execute ADM_TD_BIND_01(pipe_application= PIPE_AAA,serviceId=accessor_sut) with {
 	STEP:"Preamble";
 	PROCEDURE: "Binding of the AAA and the AAS";	
 	};

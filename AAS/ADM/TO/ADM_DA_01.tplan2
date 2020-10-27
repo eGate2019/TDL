@@ -1,0 +1,38 @@
+/*
+Copyright (c) ETSI 2020.
+
+This software is subject to copyrights owned by ETSI. Non_exclusive permission
+is hereby granted, free of charge, to copy, reproduce and amend this file
+under the following conditions: It is provided "as is", without warranty of any
+kind, expressed or implied.
+
+ETSI shall never be liable for any claim, damages, or other liability arising
+from its use or inability of use.This permission does not apply to any documentation
+associated with this file for which ETSI keeps all rights reserved. The present
+copyright notice shall be included in all copies of whole or part of this
+file and shall not imply any sub_license right.
+*/
+
+//Basic data structures
+
+Package ADM_DATA {
+Data {
+ 
+	type Integer;
+	type UUID;
+	type Boolean;
+	type String;
+	
+	type Verdict ;
+	Verdict PASS ;
+	Verdict FAIL ;
+	type Integer;
+	type UUID;
+	
+	type EVT_ADM_BIND with
+	aPipe of type Integer,
+	aServiceID of type UUID
+	;
+	}
+	
+}

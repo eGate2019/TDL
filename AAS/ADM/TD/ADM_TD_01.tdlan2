@@ -1,0 +1,62 @@
+/*
+Copyright (c) ETSI 2020.
+
+This software is subject to copyrights owned by ETSI. Non-exclusive permission
+is hereby granted, free of charge, to copy, reproduce and amend this file
+under the following conditions: It is provided "as is", without warranty of any
+kind, expressed or implied.
+
+ETSI shall never be liable for any claim, damages, or other liability arising
+from its use or inability of use.This permission does not apply to any documentation
+associated with this file for which ETSI keeps all rights reserved. The present
+copyright notice shall be included in all copies of whole or part of this
+file and shall not imply any sub-license right.
+*/
+
+Package ADM_TD_001 {
+
+	Import all from ADM_TC_001 ;
+		//Test objectives (copied verbatim from source document)
+	
+    Test Objective ADM_TP1 {
+		from : "RQ000_001" ;
+	 	description : "Prior to access to service, an application shall open a session between the application gate and the service gate." ;
+	}
+    Test Objective ADM_TP2 {
+		from : "RQ000_002" ;
+	 	description : "an application fails to open a session between the application gate and the service gate." ;
+	}	
+	//Test description definition
+	
+	Test Description ADM_TD_BIND_01(pipe_application of type Pipe, serviceId of type ServiceId) uses configuration ADM_TC_001
+	{
+		//Pre_conditions and preamble from the source document
+	perform action preambles with {PREAMBLE;};
+	perform action preConditions with {PRECONDITION;};
+		set verdict to PASS ;
+		ADM_Tester.g sends aEVT_ADM_BIND(aPipe=pipe_application, aServiceId=serviceId) to ADM_SUT.g   with {
+	STEP : "1" ;
+	PROCEDURE : "ADM_Tester initiates the binding of the session opening from an application to  service on the pipe pipe_application for the service ACCESSOR_SUT  " ;
+	} ;
+	
+	
+	alternatively {
+			ADM_SUT.g sends aEVT_ADM_BIND(aServiceId=serviceId) to ADM_Tester.g where it is assigned to sut_session with {
+			
+			 STEP : "2" ;
+			PROCEDURE : "ADM_SUT confirms the binding of the session opening from an service to  an application on the pipe pipe_service for the service ACCESSOR_SUT  " ;
+			 test objectives : ADM_TP1 ;
+				} ;
+		}
+	or
+		{
+			ADM_SUT.g sends aEVT_ADM_BIND(aServiceId=*) to ADM_Tester.g where it is assigned to sut_session with {
+			 STEP : "2" ;
+			PROCEDURE : "ADM_SUT does not confirm the binding of the session opening from an service to  an application on the pipe pipe_service for the service ACCESSOR_SUT  " ;
+		 test objectives : ADM_TP2 ;
+			} ;
+		} 
+	with {	Note : "" ; 	TITLE : "Correct session opening" ;}
+	set verdict to FAIL ;
+	}
+}

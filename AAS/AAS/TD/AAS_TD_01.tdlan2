@@ -45,7 +45,7 @@ Package AAS_TD_001 {
 	
 	//Define a condition of successful authentication
 	//-----------------------------------------------
-	AccessorConditions _aAccessorConditions(aAccessConditionsPIN=ePinNumeric); //Accessor condition using pincode
+	AccessorConditions _aAccessorConditions(aAccessConditionsPIN=ePinNumeric)with {Note ACCESSOR_CONDITIONS:"Conditions of a successful condition or authentication.";}; //Accessor condition using pincode
 	
 	//Define an access control
 	//------------------------
@@ -53,11 +53,11 @@ Package AAS_TD_001 {
 	AccessControl _aAccessControl(
 		aAccessorIdentity=accessor_test_0_ID,
 		aAccessorRights=eAASAccessRight_Create
-	);
+	)with {Note ACCESS_CONTROL_ASSIGNMENT:"Creation of the AccessControl ";};
 	
 	//Create the list of the AccessControl
 	//------------------------------------
-	AccessControlList _aACL containing {_aAccessControl};
+	AccessControlList _aACL containing {_aAccessControl}with {Note ACL_CREATION:" Creation of the ACL ";};
 	
 	//Create the AccessorUser
 	//-----------------------
@@ -66,11 +66,11 @@ Package AAS_TD_001 {
 		aAccessorIdentity=accessor_test_0_ID,          //The identity
 		aAccessorConditions = _aAccessorConditions, //The conditions
 		aACL=_aACL									//The ACL
-	);
+	)with {Note ACCESSOR_CREATION:" Creation of the AccessorUser ";};
 	
 	//Creation of the Accessor
 	//------------------------
-	Accessor _aAccessor(aAccessorUser=_aAccessorUser);
+	Accessor _aAccessor(aAccessorUser=_aAccessorUser) with {Note ACCESSOR_ASSIGNMENT:" Assignment of the AccessorUser ";};
 	
 	//Creation of the accessor credentials
 	//------------------------------------
@@ -80,20 +80,24 @@ Package AAS_TD_001 {
 		aMinSize=4  ,  // Minimum size of PIN
 		aMaxSize=6  ,  // Maximum size of PIN
 		aMaxAttempts=3    // Maximum number of attempts
-		);
+		)with  {Note ACCESSOR_CREATION_CREDENTIAL_POLICY : "Creation Accessor credential policy:_aPinNumericPolicy";};
+	
 		
 	//Accessor credential policy
 	//--------------------------
 	AccessorCredentialsPolicy _aAccessorCredentialsPolicy(
 		aPinNumericPolicy = _aPinNumericPolicy   // Numeric PIN policy
-		);
+		) with  {Note ACCESSOR_ASSIGNMENT_CREDENTIAL_POLICY : "Assignement Accessor credential policy:_aPinNumericPolicy";};
+	
+	
 	//Creation an instance of AAS_ADMIN_CREATE_ACCESSOR_Service_Command
-	 
+	
 	AAS_ADMIN_CREATE_ACCESSOR_Service_Command aAAS_ADMIN_CREATE_ACCESSOR_Service_Command (
 		aAccessor=_aAccessor,  // Accessor to be created
 		aCredential=_aAccessorCredentials,  // Credentials for the accessor
 		aCredentialsPolicy=_aAccessorCredentialsPolicy   // Policy for the provided accessors
-	);
+	) with  {Note AAS_ADMIN_CREATE_ACCESSOR_Service_Command_Type_Creation : "Creation an instance of AAS_ADMIN_CREATE_ACCESSOR_Service_Command";};
+	
 
 
 	Test Description AAS_TD_CREATE_01 uses configuration AAS_TC_001
